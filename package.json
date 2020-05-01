@@ -13,14 +13,19 @@
     "ava": "^3.8.1"
   },
   "devDependencies": {
+    "bundlesize": "^0.18.0",
     "c8": "^7.1.1",
     "custom-event-universal": "^1.0.1",
     "esm": "^3.2.25",
     "event-target-shim": "^5.0.1",
-    "rollup": "^2.7.6"
+    "rollup": "^2.7.6",
+    "rollup-plugin-terser": "^5.3.0"
   },
   "scripts": {
-    "test": "c8 --reporter=html --reporter=text --check-coverage --lines 80 ava test/*.js"
+    "bundlesize": "bundlesize",
+    "build": "rollup -c rollup.config.js",
+    "dev": "rollup -c rollup.config.js --watch",
+    "test": "c8 --reporter=html --reporter=text --check-coverage --lines 80 ava test/*.js && bundlesize"
   },
   "repository": {
     "type": "git",

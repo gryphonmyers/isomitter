@@ -1,0 +1,24 @@
+{
+    "files": [
+      {
+        "path": "./dist/isomitter-browser.esm.min.js",
+        "maxSize": "0.35 kB",
+        "compression": "brotli"
+      },
+      {
+        "path": "./dist/isomitter-browser.cjs.min.js",
+        "maxSize": "0.35 kB",
+        "compression": "brotli"
+      },
+      {
+        "path": "./dist/isomitter-node.esm.min.js",
+        "maxSize": "0.5 kB",
+        "compression": "brotli"
+      },
+      {
+        "path": "./dist/isomitter-node.cjs.min.js",
+        "maxSize": "0.5 kB",
+        "compression": "brotli"
+      }
+    ]
+  }
