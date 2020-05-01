@@ -173,4 +173,6 @@ export default (EventEmitter) => {
         t.is(evts[0].bar, 1);
         t.is(evts[1].bar, 2);
     });
+
+    test.todo('test dispatchEvent with event object passed in');
 }
