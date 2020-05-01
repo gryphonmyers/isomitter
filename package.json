@@ -1,0 +1,38 @@
+{
+  "name": "isomitter",
+  "version": "0.1.0",
+  "description": "Isomorphic event emitter interface providing a consistent APIs and optimal code reuse across Node and browser environments.",
+  "main": "dist/isomitter-node.cjs.js",
+  "module": "dist/isomitter-browser.esm.js",
+  "browser": "dist/isomitter-browser.cjs.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "ava": "^3.8.1"
+  },
+  "devDependencies": {
+    "c8": "^7.1.1",
+    "custom-event-universal": "^1.0.1",
+    "esm": "^3.2.25",
+    "event-target-shim": "^5.0.1",
+    "rollup": "^2.7.6"
+  },
+  "scripts": {
+    "test": "c8 --reporter=html --reporter=text --check-coverage --lines 80 ava test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gryphonmyers/isomitter.git"
+  },
+  "keywords": [
+    "event-emitter"
+  ],
+  "author": "Gryphon Myers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gryphonmyers/isomitter/issues"
+  },
+  "homepage": "https://github.com/gryphonmyers/isomitter#readme"
+}
