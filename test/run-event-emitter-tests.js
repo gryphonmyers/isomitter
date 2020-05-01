@@ -11,7 +11,7 @@ export default (EventEmitter) => {
             triggered = evtObj;
         }
         em.on('hi', onOn);
-        em.trigger('hi', {foo: 'bar'});
+        em.emit('hi', {foo: 'bar'});
 
         t.is(triggered.foo, 'bar');
         t.is(triggered.eventName, 'hi');
@@ -40,7 +40,7 @@ export default (EventEmitter) => {
         }
         em.addListener('hi', onAddListener)
 
-        em.trigger('hi', {foo: 'bar'});
+        em.emit('hi', {foo: 'bar'});
 
         t.is(triggered.addListener, triggered.addEventListener);
         t.is(triggered.addListener, triggered.on); 
@@ -55,7 +55,7 @@ export default (EventEmitter) => {
         em.on('hi', onOn);
 
         em.dispatchEvent('hi', {foo:'bi'});
-        em.trigger('hi', {foo:'bi2'});
+        em.emit('hi', {foo:'bi2'});
         em.emit('hi', {foo:'bi3'});
 
         t.is(evts.length, 3);
@@ -72,11 +72,11 @@ export default (EventEmitter) => {
         }
         em.on('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar'});
+        em.emit('hi', {foo: 'bar'});
 
         em.removeEventListener('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar2'});
+        em.emit('hi', {foo: 'bar2'});
         
         t.is(evts.length, 1);
         t.is(evts[0].foo, 'bar');
@@ -90,27 +90,27 @@ export default (EventEmitter) => {
         }
         em.on('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar'});
+        em.emit('hi', {foo: 'bar'});
 
         em.removeEventListener('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar2'});
+        em.emit('hi', {foo: 'bar2'});
 
         em.on('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar3'});
+        em.emit('hi', {foo: 'bar3'});
 
         em.removeListener('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar4'});
+        em.emit('hi', {foo: 'bar4'});
 
         em.on('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar5'});
+        em.emit('hi', {foo: 'bar5'});
 
         em.off('hi', onOn);
 
-        em.trigger('hi', {foo: 'bar6'});
+        em.emit('hi', {foo: 'bar6'});
         
         t.is(evts.length, 3);
         t.is(evts[0].foo, 'bar');
@@ -126,8 +126,8 @@ export default (EventEmitter) => {
             numTriggers++;
         });
 
-        em.trigger('hi', {});    
-        em.trigger('hi', {});
+        em.emit('hi', {});    
+        em.emit('hi', {});
 
         t.is(numTriggers, 1);
     })
@@ -141,7 +141,7 @@ export default (EventEmitter) => {
         })
         result = 1;
 
-        em.trigger('hi', null);
+        em.emit('hi', null);
 
         t.falsy(result.detail);
     })
@@ -155,7 +155,7 @@ export default (EventEmitter) => {
         })
 
         result = 1;
-        em.trigger('hi');
+        em.emit('hi');
         
         t.falsy(result.detail);
     })
@@ -167,8 +167,8 @@ export default (EventEmitter) => {
             evts.push(evt)
         })
 
-        em.trigger('foo', {bar: 1});
-        em.trigger('foo', {bar: 2});
+        em.emit('foo', {bar: 1});
+        em.emit('foo', {bar: 2});
 
         t.is(evts[0].bar, 1);
         t.is(evts[1].bar, 2);
